@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State private var timeRemaining = 5
+    @State private var timeRemaining = 4
     @Binding var timerDone: Bool
     
     let timer = Timer.publish(
