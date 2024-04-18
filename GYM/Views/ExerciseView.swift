@@ -14,7 +14,6 @@ struct ExerciseView: View {
     
     @State private var showHistory = false
     @State private var showSuccess = false
-    @State private var rating = 0
     
     let index: Int
 
@@ -43,7 +42,7 @@ struct ExerciseView: View {
                 }
       
                 HStack(spacing: 100) {
-                    Button(NSLocalizedString("Start Exercise", comment: "start exercise")) { // Move buttons above TimerView
+                    Button(NSLocalizedString("Start Exercise", comment: "start exercise")) { 
                         showTimer.toggle()
                     }
                     Button(NSLocalizedString("Done", comment: "complete exercise")) {
@@ -68,7 +67,7 @@ struct ExerciseView: View {
                     TimerView(timerDone: $timerDone)
                 }
                 Spacer()
-                RatingView(rating: $rating) // Move RatingView below Spacer
+                RatingView(exerciseIndex: index)
                     .padding()
                 
                 
