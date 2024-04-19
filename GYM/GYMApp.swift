@@ -17,6 +17,7 @@ struct GYMApp: App {
                     for: .documentDirectory,
                     in: .userDomainMask))
                 }
+                .environmentObject(HistoryStore())
         }
     }
 }

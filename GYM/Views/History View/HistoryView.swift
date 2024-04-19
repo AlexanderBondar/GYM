@@ -20,10 +20,12 @@ struct HistoryView: View {
               Image(systemName: "xmark.circle")
             }
             .font(.title)
-            .padding(.trailing)
+            .padding()
             
             VStack {
                 Text(NSLocalizedString("History", comment: "view user activity"))
+                    .font(.title)
+                    .padding()
                 Form {
                   ForEach(history.exerciseDays) { day in
                     Section(
