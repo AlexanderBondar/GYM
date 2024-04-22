@@ -26,4 +26,9 @@ extension HistoryStore {
                 ])
         ]
     }
+    
+    convenience init(debugData: Bool) {
+      self.init()
+      createDevData()
+    }
 }

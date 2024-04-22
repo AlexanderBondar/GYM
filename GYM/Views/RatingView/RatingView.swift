@@ -35,19 +35,21 @@ struct RatingView: View {
     var body: some View {
         HStack {
             ForEach(1 ..< maximumRating + 1, id: \.self) { index in
-                Image(systemName: "waveform.path.ecg")
+                Button(action: {
+                  updateRating(index: index)
+                }, label: {
+                  Image(systemName: "waveform.path.ecg")
                     .foregroundColor(
-                        index > rating ? offColor : onColor)
-                    .onTapGesture {
-                        updateRating(index: index)
-                    }
-                    .onAppear {
-                      let index = ratings.index(
-                        ratings.startIndex,
-                        offsetBy: exerciseIndex)
-                      let character = ratings[index]
-                      rating = character.wholeNumberValue ?? 0
-                    }
+                      index > rating ? offColor : onColor)
+                    .font(.body)
+                })
+                .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+                .onChange(of: ratings) { _ in
+                  convertRating()
+                }
+                .onAppear {
+                  convertRating()
+                }
             }
         }
         .font(.largeTitle)
@@ -59,6 +61,15 @@ struct RatingView: View {
         ratings.startIndex,
         offsetBy: exerciseIndex)
       ratings.replaceSubrange(index...index, with: String(rating))
+    }
+    
+    // swiftlint:disable:next strict_fileprivate
+    fileprivate func convertRating() {
+      let index = ratings.index(
+        ratings.startIndex,
+        offsetBy: exerciseIndex)
+      let character = ratings[index]
+      rating = character.wholeNumberValue ?? 0
     }
 }
 
