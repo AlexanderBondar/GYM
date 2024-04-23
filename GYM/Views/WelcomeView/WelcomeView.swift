@@ -33,37 +33,6 @@ struct WelcomeView: View {
         .buttonStyle(EmbossedButtonStyle())
     }
     
-    //    var body: some View {
-    //        ZStack {
-    //            VStack {
-    //                HeaderView(selectedTab: $selectedTab, titleText: NSLocalizedString("Welcome", comment: "greeting"))
-    //                Spacer()
-    //                historyButton
-    //                  .sheet(isPresented: $showHistory) {
-    //                    HistoryView(showHistory: $showHistory)
-    //                  }
-    //            }
-    //            VStack(spacing: 100) {
-    //                HStack(alignment: .bottom) {
-    //                    VStack(alignment: .leading) {
-    //                        Text(NSLocalizedString("Get fit", comment: "view user activity"))
-    //                            .font(.largeTitle)
-    //                        Text("with high intensity interval training")
-    //                            .font(.headline)
-    //                    }
-    //                    Image("welcome")
-    //                        .resizedToFill(width: 150, height: 150)
-    //                        .clipShape(Circle())
-    //                }
-    //                getStartedButton
-    //
-    ////                .background(
-    ////                  RoundedRectangle(cornerRadius: 20)
-    ////                  .stroke(Color.gray, lineWidth: 2)
-    ////                )
-    //            }
-    //        }
-    //    }
     var body: some View {
         GeometryReader { geometry in
             VStack {
